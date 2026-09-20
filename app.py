@@ -1290,6 +1290,7 @@ class HoneygainApp(ctk.CTk):
         gathering_credits = []
         content_credits = []
         winning_credits = []
+        referral_credits = []
         
         # Sort the dates
         sorted_dates = sorted(self.stats_data.keys())
@@ -1311,6 +1312,9 @@ class HoneygainApp(ctk.CTk):
             
             winning = day_data.get("winnings", {}).get("credits", 0)
             winning_credits.append(winning)
+            
+            referrals = day_data.get("referrals", {}).get("credits", 0)
+            referral_credits.append(referrals)
         
         # Stats calculations
         total_earnings = sum(gathering_credits) + sum(content_credits) + sum(winning_credits)
@@ -1345,7 +1349,7 @@ class HoneygainApp(ctk.CTk):
         self.create_horizontal_bar_chart(
             self.bar_frame,
             ["Sharing", "Content", "Winning", "Referrals"],
-            [sum(gathering_credits), sum(content_credits), sum(winning_credits), 0],
+            [sum(gathering_credits), sum(content_credits), sum(winning_credits), sum(referral_credits)],
             [COLORS["neon_cyan"], COLORS["neon_blue"], COLORS["neon_pink"], COLORS["neon_purple"]]
         )
 
