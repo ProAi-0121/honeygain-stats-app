@@ -55,4 +55,4 @@ python app.py
 
 - **401 errors / empty data** — your token probably expired. Get a fresh one (see "Getting the token" above).
 - **Nothing shows at all** — make sure `.env` sits next to `app.py` and the variable is named `HONEYGAIN_TOKEN`.
-- **Chart area is blank** — this happens if `Honeygainn` has no stats yet for a new account; give it a day or two.
+- **Chart area is blank** — this happens if `Honeygain` has no stats yet for a new account; give it a day or two.
