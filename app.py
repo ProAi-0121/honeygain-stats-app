@@ -1017,7 +1017,7 @@ class HoneygainApp(ctk.CTk):
                     text=f"Estimated: {payout_estimation}"
                 ))
         else:
-            print(f"Failed to fetch balance: {response.status_code} - {response.text}")
+            self.after(0, lambda: self.status_var.set(f"Failed to fetch balance: {response.status_code}"))
     
     def fetch_stats(self):
         """Fetch stats data"""
@@ -1140,7 +1140,7 @@ class HoneygainApp(ctk.CTk):
                 text=f"Estimated: {payout_estimation} ({days_used_text})"
             ))
         else:
-            print(f"Failed to fetch stats: {response.status_code} - {response.text}")
+            self.after(0, lambda: self.status_var.set(f"Failed to fetch stats: {response.status_code}"))
 
     def fetch_data(self):
         """Fetch data from Honeygain API"""
@@ -1164,7 +1164,6 @@ class HoneygainApp(ctk.CTk):
             self.after(0, self._update_ui_after_fetch)
             
         except Exception as e:
-            print(f"Error occurred: {str(e)}")
             # Update status in main thread
             self.after(0, lambda: self.status_var.set(f"Error: {str(e)}"))
             self.after(0, lambda: self.refresh_button.configure(state="normal"))
@@ -1269,7 +1268,7 @@ class HoneygainApp(ctk.CTk):
                 text=f"STREAMING: {streaming_display}"
             ))
         else:
-            print(f"Failed to fetch today's data: {response.status_code} - {response.text}")
+            self.after(0, lambda: self.status_var.set(f"Failed to fetch today's data: {response.status_code}"))
 
     def update_graphs(self):
         """Update all graphs with data"""
