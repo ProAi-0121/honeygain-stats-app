@@ -1067,10 +1067,6 @@ class HoneygainApp(ctk.CTk):
             
             monthly_avg = self.daily_avg_earnings * 30  # Extrapolate to a month (30 days)
             
-            # Log the data points used for calculation to help debug
-            print(f"Using {len(daily_values)} complete days for calculations")
-            print(f"Daily average: {self.daily_avg_earnings:.2f} credits")
-            
             # Calculate monthly and full month stats for display
             current_month_total = 0
             last_month_total = 0
