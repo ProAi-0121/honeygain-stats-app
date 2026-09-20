@@ -42,7 +42,7 @@ Tokens expire, so if the app suddenly stops showing data, grab a fresh one.
 ## Usage
 
 ```
-python ap.py
+python app.py
 ```
 
 ## Configuration
